@@ -83,7 +83,7 @@ class TrainConfig:
     n: int = 4
     steps: int = 2000
     lr: float = 5e-2
-    mode: str = "aniso"
+    mode: str = "rotation"
     s_max: float = 0.20
     seed: int = 0
     log_every: int = 200
