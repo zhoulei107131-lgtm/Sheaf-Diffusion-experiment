@@ -62,9 +62,10 @@ class SPDPerNode(nn.Module):
     def forward(self) -> torch.Tensor:
         a = torch.clamp(self.a, -self.clamp_val, self.clamp_val)
         c = torch.clamp(self.c, -self.clamp_val, self.clamp_val)
+        b = torch.clamp(self.b, -self.clamp_val, self.clamp_val)
+        
         ea = torch.exp(a)
         ec = torch.exp(c)
-        b = self.b
 
         # Build L for each node: shape (n, 2, 2)
         L = torch.zeros((self.n, 2, 2), device=self.device, dtype=torch.get_default_dtype())
