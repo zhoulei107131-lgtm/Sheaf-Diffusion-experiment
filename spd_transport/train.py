@@ -82,12 +82,12 @@ class SPDPerNode(nn.Module):
 class TrainConfig:
     n: int = 4
     steps: int = 2000
-    lr: float = 5e-2
+    lr: float = 1e-3
     mode: str = "rotation"
     s_max: float = 0.20
     seed: int = 0
     log_every: int = 200
-    eps: float = 1e-10
+    eps: float = 1e-8
     device: str | None = None
 
 
@@ -160,8 +160,8 @@ def parse_args() -> TrainConfig:
     parser = argparse.ArgumentParser(description="Train SPD transport model.")
     parser.add_argument("--n", type=int, default=4, help="Number of nodes in cycle graph.")
     parser.add_argument("--steps", type=int, default=2000, help="Number of training steps.")
-    parser.add_argument("--lr", type=float, default=5e-2, help="Learning rate.")
-    parser.add_argument("--mode", type=str, default="aniso", help="Transport mode.")
+    parser.add_argument("--lr", type=float, default=1e-3, help="Learning rate.")
+    parser.add_argument("--mode", type=str, default="rotation", help="Transport mode.")
     parser.add_argument("--s-max", type=float, default=0.20, help="Anisotropy magnitude.")
     parser.add_argument("--seed", type=int, default=0, help="Random seed.")
     parser.add_argument("--log-every", type=int, default=200, help="Logging frequency.")
